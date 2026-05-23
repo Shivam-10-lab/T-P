@@ -1,0 +1,488 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  font-size: 14px;
+}
+
+/* ── Form Page ─────────────────────────────────────────────── */
+.form-wrapper {
+  max-width: 960px;
+  margin: 30px auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 32px 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.institute-header {
+  text-align: center;
+  border-bottom: 3px double #003087;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.institute-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #003087;
+  letter-spacing: 0.5px;
+}
+
+.institute-header p {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #003087;
+  letter-spacing: 2px;
+  margin: 12px 0 24px;
+  text-transform: uppercase;
+}
+
+/* ── Section Headers ───────────────────────────────────────── */
+.section-header {
+  background: #003087;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 24px 0 12px;
+  letter-spacing: 0.5px;
+}
+
+.section-header span {
+  background: #ffd700;
+  color: #003087;
+  padding: 1px 7px;
+  border-radius: 2px;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+/* ── Tables ────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+
+th {
+  background: #e8eef7;
+  color: #003087;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 7px 8px;
+  border: 1px solid #b0bec5;
+  text-align: left;
+}
+
+td {
+  border: 1px solid #b0bec5;
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+td input[type="text"],
+td input[type="email"],
+td input[type="url"],
+td input[type="date"],
+td select,
+td textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-family: inherit;
+  padding: 2px 4px;
+  outline: none;
+}
+
+td input:focus, td select:focus, td textarea:focus {
+  background: #fffde7;
+}
+
+/* ── Field rows (label + input in a table) ─────────────────── */
+.field-label {
+  background: #e8eef7;
+  font-weight: 600;
+  font-size: 12px;
+  color: #003087;
+  width: 200px;
+  padding: 7px 10px;
+}
+
+.field-value {
+  padding: 5px 8px;
+}
+
+.field-value input,
+.field-value select,
+.field-value textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.field-value input:focus,
+.field-value select:focus {
+  background: #fffde7;
+}
+
+/* ── Radio / Checkbox ──────────────────────────────────────── */
+.radio-group label {
+  margin-right: 16px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.radio-group input { margin-right: 4px; }
+
+/* ── Inline conditional field ──────────────────────────────── */
+.inline-cond {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.inline-cond span {
+  font-size: 12px;
+  color: #666;
+}
+
+.inline-cond input[type="text"] {
+  border-bottom: 1px solid #999;
+  width: 120px;
+  font-size: 13px;
+}
+
+/* ── Submit button ─────────────────────────────────────────── */
+.submit-btn {
+  display: block;
+  margin: 28px auto 0;
+  background: #003087;
+  color: #fff;
+  border: none;
+  padding: 12px 48px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover { background: #00409e; }
+
+/* ── Footer ────────────────────────────────────────────────── */
+.form-footer {
+  margin-top: 28px;
+  border-top: 2px solid #003087;
+  padding-top: 12px;
+  font-size: 12px;
+  color: #444;
+}
+
+.form-footer p { margin-bottom: 4px; }
+
+.form-footer-bar {
+  margin-top: 16px;
+  background: #003087;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* ── Success message ───────────────────────────────────────── */
+.success-box {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.success-box h2 { color: #003087; font-size: 24px; }
+.success-box p { color: #555; margin-top: 10px; }
+
+/* ── Admin Panel ───────────────────────────────────────────── */
+.admin-wrapper {
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.admin-nav {
+  background: #003087;
+  color: #fff;
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-nav h1 { font-size: 16px; letter-spacing: 1px; }
+
+.admin-nav button {
+  background: transparent;
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.admin-content { padding: 24px 32px; }
+
+.stats-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 16px 24px;
+  min-width: 140px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.stat-card .num { font-size: 28px; font-weight: 700; color: #003087; }
+.stat-card .lbl { font-size: 12px; color: #888; margin-top: 4px; }
+
+.table-card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.table-card-header {
+  background: #003087;
+  color: #fff;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background: #e8eef7;
+  color: #003087;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #b0bec5;
+}
+
+.admin-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.admin-table tr:hover td { background: #f7f9fc; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-pending { background: #fff3cd; color: #856404; }
+.badge-reviewed { background: #cce5ff; color: #004085; }
+.badge-approved { background: #d4edda; color: #155724; }
+.badge-rejected { background: #f8d7da; color: #721c24; }
+
+.btn-view {
+  background: #003087;
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* ── Modal ─────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+  padding: 30px 20px;
+  overflow-y: auto;
+}
+
+.modal-box {
+  background: #fff;
+  width: 100%;
+  max-width: 860px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: #003087;
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 { font-size: 15px; }
+
+.modal-header button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-body { padding: 24px; max-height: 75vh; overflow-y: auto; }
+
+.detail-section { margin-bottom: 20px; }
+
+.detail-section h3 {
+  background: #003087;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.detail-item { font-size: 13px; }
+.detail-item strong { color: #003087; }
+
+.status-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.status-control select {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.status-control button {
+  background: #003087;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ── Admin Login ───────────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #567cc477 0%, #0055cc 100%);
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px 36px;
+  border-radius: 8px;
+  width: 360px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.login-card h2 {
+  color: #003087;
+  font-size: 20px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.login-card p {
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 9px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus { border-color: #003087; }
+
+.login-btn {
+  width: 100%;
+  background: #003087;
+  color: #fff;
+  border: none;
+  padding: 11px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.login-btn:hover { background: #00409e; }
+.error-msg { color: #dc3545; font-size: 13px; margin-top: 10px; text-align: center; }
