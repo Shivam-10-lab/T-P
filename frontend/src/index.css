@@ -99,23 +99,32 @@ td textarea {
   width: 100%;
   border: none;
   background: transparent;
-  font-size: 13px;
+  font-size: 10px;
   font-family: inherit;
   padding: 2px 4px;
   outline: none;
 }
 
-td input:focus, td select:focus, td textarea:focus {
+td input:focus,
+td select:focus,
+td textarea:focus {
   background: #fffde7;
 }
 
-/* ── Field rows (label + input in a table) ─────────────────── */
+/* ── Horizontally scrollable table wrapper ─────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* ── Field rows ────────────────────────────────────────────── */
 .field-label {
   background: #e8eef7;
   font-weight: 600;
   font-size: 12px;
   color: #003087;
-  width: 200px;
+  width: 20%;
   padding: 7px 10px;
 }
 
@@ -140,13 +149,26 @@ td input:focus, td select:focus, td textarea:focus {
 }
 
 /* ── Radio / Checkbox ──────────────────────────────────────── */
-.radio-group label {
-  margin-right: 16px;
-  cursor: pointer;
-  font-size: 13px;
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
 }
 
-.radio-group input { margin-right: 4px; }
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.radio-group input[type="radio"] {
+  margin: 0;
+}
 
 /* ── Inline conditional field ──────────────────────────────── */
 .inline-cond {
@@ -211,7 +233,7 @@ td input:focus, td select:focus, td textarea:focus {
 }
 
 .success-box h2 { color: #003087; font-size: 24px; }
-.success-box p { color: #555; margin-top: 10px; }
+.success-box p  { color: #555; margin-top: 10px; }
 
 /* ── Admin Panel ───────────────────────────────────────────── */
 .admin-wrapper {
@@ -299,6 +321,7 @@ td input:focus, td select:focus, td textarea:focus {
 
 .admin-table tr:hover td { background: #f7f9fc; }
 
+/* ── Badges ────────────────────────────────────────────────── */
 .badge {
   display: inline-block;
   padding: 2px 10px;
@@ -307,7 +330,7 @@ td input:focus, td select:focus, td textarea:focus {
   font-weight: 600;
 }
 
-.badge-pending { background: #fff3cd; color: #856404; }
+.badge-pending  { background: #fff3cd; color: #856404; }
 .badge-reviewed { background: #cce5ff; color: #004085; }
 .badge-approved { background: #d4edda; color: #155724; }
 .badge-rejected { background: #f8d7da; color: #721c24; }
@@ -374,8 +397,13 @@ td input:focus, td select:focus, td textarea:focus {
   line-height: 1;
 }
 
-.modal-body { padding: 24px; max-height: 75vh; overflow-y: auto; }
+.modal-body {
+  padding: 24px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
 
+/* ── Detail section ────────────────────────────────────────── */
 .detail-section { margin-bottom: 20px; }
 
 .detail-section h3 {
@@ -485,7 +513,13 @@ td input:focus, td select:focus, td textarea:focus {
 }
 
 .login-btn:hover { background: #00409e; }
-.error-msg { color: #dc3545; font-size: 13px; margin-top: 10px; text-align: center; }
+
+.error-msg {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
+}
 
 /* ── Detail modal tables ───────────────────────────────────── */
 .detail-table {
@@ -517,16 +551,13 @@ td input:focus, td select:focus, td textarea:focus {
   white-space: nowrap;
 }
 
-.detail-value {
-  color: #1a1a2e;
-}
+.detail-value { color: #1a1a2e; }
+.detail-value a { color: #003087; }
 
-.detail-value a {
-  color: #003087;
-}
-
+/* Tables that need horizontal scroll (e.g. experience, publications) */
 .full-table {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   display: block;
   white-space: nowrap;
 }
@@ -589,20 +620,12 @@ td input:focus, td select:focus, td textarea:focus {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE RESPONSIVE — all breakpoints
+   RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 
-/* ── Scrollable tables on small screens ────────────────────── */
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-}
-
-/* ── Base mobile resets ─────────────────────────────────────── */
+/* ── Mobile (≤ 768px) ───────────────────────────────────────── */
 @media (max-width: 768px) {
 
-  /* Form wrapper */
   .form-wrapper {
     margin: 0;
     padding: 16px 14px;
@@ -610,7 +633,6 @@ td input:focus, td select:focus, td textarea:focus {
     box-shadow: none;
   }
 
-  /* Institute header */
   .header-logo-row {
     flex-direction: column;
     align-items: center;
@@ -623,13 +645,8 @@ td input:focus, td select:focus, td textarea:focus {
     height: 60px;
   }
 
-  .institute-header h2 {
-    font-size: 13px;
-  }
-
-  .institute-header p {
-    font-size: 11px;
-  }
+  .institute-header h2 { font-size: 13px; }
+  .institute-header p  { font-size: 11px; }
 
   .form-title {
     font-size: 15px;
@@ -637,35 +654,25 @@ td input:focus, td select:focus, td textarea:focus {
     margin: 10px 0 16px;
   }
 
-  /* Section headers */
   .section-header {
     font-size: 11px;
     padding: 5px 8px;
   }
 
-  /* All form tables — make horizontally scrollable */
-  table {
+  /* All tables scrollable — do NOT use display:block on <table> itself
+     as it breaks thead/tbody alignment; use .table-responsive wrapper instead */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  /* Tables that already use .full-table for scrolling */
+  .full-table {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
-    width: 100%;
-  }
-
-  table thead,
-  table tbody,
-  table tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  /* Override display:block for specific tables that need proper layout */
-  .detail-table,
-  .admin-table,
-  .full-table {
-    display: block;
-    overflow-x: auto;
   }
 
   th, td {
@@ -675,44 +682,31 @@ td input:focus, td select:focus, td textarea:focus {
     word-break: break-word;
   }
 
-  /* Field label-value rows: stack vertically on very small screens */
+  /* Stack field label above value on small screens */
   .field-label {
     width: 100%;
     display: block;
   }
 
-  /* Inline conditional fields */
-  .inline-cond {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+  /* Radio groups: keep labels inline, never let text break mid-word */
+ 
 
-  .inline-cond input[type="text"] {
-    width: 90px;
-  }
+  .inline-cond { gap: 6px; }
+  .inline-cond input[type="text"] { width: 90px; }
 
-  /* Radio groups */
-  .radio-group {
-    flex-wrap: wrap;
-  }
-
-  /* Submit button */
   .submit-btn {
     width: 100%;
     padding: 12px;
     font-size: 14px;
   }
 
-  /* Form footer */
-  .form-footer {
-    font-size: 11px;
-  }
+  .form-footer { font-size: 11px; }
 
   .form-footer-bar {
     font-size: 11px;
     padding: 5px 8px;
-    word-break: break-word;
     white-space: normal;
+    word-break: break-word;
   }
 
   .admin-access-bar {
@@ -720,7 +714,7 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 5px 14px;
   }
 
-  /* ── Admin navbar ─────────────────────────────────────────── */
+  /* Admin nav */
   .admin-nav {
     flex-direction: column;
     align-items: flex-start;
@@ -728,14 +722,10 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 12px 16px;
   }
 
-  .admin-nav h1 {
-    font-size: 13px;
-  }
+  .admin-nav h1 { font-size: 13px; }
 
-  /* ── Stats row ────────────────────────────────────────────── */
-  .stats-row {
-    gap: 10px;
-  }
+  /* Stats */
+  .stats-row { gap: 10px; }
 
   .stat-card {
     min-width: 0;
@@ -743,20 +733,11 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 12px 10px;
   }
 
-  .stat-card .num {
-    font-size: 22px;
-  }
+  .stat-card .num { font-size: 22px; }
+  .stat-card .lbl { font-size: 11px; }
 
-  .stat-card .lbl {
-    font-size: 11px;
-  }
+  .admin-content { padding: 14px 12px; }
 
-  /* ── Admin content padding ────────────────────────────────── */
-  .admin-content {
-    padding: 14px 12px;
-  }
-
-  /* ── Table card header ────────────────────────────────────── */
   .table-card-header {
     flex-direction: column;
     align-items: flex-start;
@@ -764,14 +745,10 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 10px 14px;
   }
 
-  .table-card-header input[type="text"] {
-    width: 100% !important;
-  }
+  .table-card-header input[type="text"] { width: 100% !important; }
 
-  /* ── Admin table ──────────────────────────────────────────── */
-  .admin-table {
-    min-width: 560px;
-  }
+  /* Admin table: force min-width so it scrolls inside .table-responsive */
+  .admin-table { min-width: 560px; }
 
   .admin-table th,
   .admin-table td {
@@ -785,7 +762,7 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 3px 8px;
   }
 
-  /* ── Modal ────────────────────────────────────────────────── */
+  /* Modal */
   .modal-overlay {
     padding: 0;
     align-items: flex-end;
@@ -793,7 +770,6 @@ td input:focus, td select:focus, td textarea:focus {
 
   .modal-box {
     max-width: 100%;
-    width: 100%;
     border-radius: 12px 12px 0 0;
     max-height: 92vh;
   }
@@ -802,26 +778,20 @@ td input:focus, td select:focus, td textarea:focus {
     padding: 12px 14px;
   }
 
-  .modal-header h2 {
-    font-size: 14px;
-  }
+  .modal-header h2 { font-size: 14px; }
 
   .modal-body {
     padding: 14px;
     max-height: 78vh;
   }
 
-  /* ── Detail section header ────────────────────────────────── */
   .detail-section-head {
     font-size: 12px;
     padding: 5px 10px;
     margin: 16px 0 6px;
   }
 
-  /* ── Detail tables ────────────────────────────────────────── */
-  .detail-table {
-    font-size: 12px;
-  }
+  .detail-table { font-size: 12px; }
 
   .detail-table td,
   .detail-table th {
@@ -833,41 +803,24 @@ td input:focus, td select:focus, td textarea:focus {
     font-size: 12px;
   }
 
-  /* Full-width scrollable tables in modal */
-  .full-table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-  }
-
-  /* CGPA chips wrap */
   .chip {
     font-size: 11px;
     padding: 2px 6px;
     margin-bottom: 3px;
   }
 
-  /* Status control */
   .status-control {
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  .status-control select {
-    width: 100%;
-  }
+  .status-control select { width: 100%; }
+  .status-control button { flex: 1; text-align: center; }
 
-  .status-control button {
-    flex: 1;
-    text-align: center;
-  }
-
-  /* ── Login page ───────────────────────────────────────────── */
+  /* Login */
   .login-page {
-    padding: 20px 16px;
+    padding: 60px 16px 20px;
     align-items: flex-start;
-    padding-top: 60px;
   }
 
   .login-card {
@@ -876,77 +829,36 @@ td input:focus, td select:focus, td textarea:focus {
   }
 }
 
-/* ── Extra small screens (≤ 400px) ─────────────────────────── */
+/* ── Extra small (≤ 400px) ──────────────────────────────────── */
 @media (max-width: 400px) {
 
-  .form-wrapper {
-    padding: 12px 10px;
-  }
-
-  .institute-header h2 {
-    font-size: 12px;
-  }
-
-  .form-title {
-    font-size: 13px;
-  }
-
-  .section-header {
-    font-size: 10px;
-  }
+  .form-wrapper    { padding: 12px 10px; }
+  .institute-header h2 { font-size: 12px; }
+  .form-title      { font-size: 13px; }
+  .section-header  { font-size: 10px; }
 
   th, td {
     font-size: 11px;
     padding: 4px 5px;
   }
 
-  .stat-card {
-    flex: 1 1 100%;
-  }
+  .stat-card    { flex: 1 1 100%; }
+  .detail-label { width: 120px; font-size: 11px; }
+  .detail-value { font-size: 11px; }
 
-  .detail-label {
-    width: 120px;
-    font-size: 11px;
-  }
+  .modal-body { padding: 10px; max-height: 82vh; }
 
-  .detail-value {
-    font-size: 11px;
-  }
-
-  .modal-body {
-    padding: 10px;
-    max-height: 82vh;
-  }
-
-  .nit-logo {
-    width: 48px;
-    height: 48px;
-  }
-
-  .login-card {
-    padding: 22px 14px;
-  }
+  .nit-logo    { width: 48px; height: 48px; }
+  .login-card  { padding: 22px 14px; }
 }
 
 /* ── Tablet (769px – 1024px) ────────────────────────────────── */
 @media (min-width: 769px) and (max-width: 1024px) {
 
-  .form-wrapper {
-    margin: 16px auto;
-    padding: 24px 28px;
-  }
-
-  .modal-box {
-    max-width: 720px;
-  }
-
-  .admin-content {
-    padding: 20px 24px;
-  }
-
-  .stat-card {
-    min-width: 120px;
-  }
+  .form-wrapper   { margin: 16px auto; padding: 24px 28px; }
+  .modal-box      { max-width: 720px; }
+  .admin-content  { padding: 20px 24px; }
+  .stat-card      { min-width: 120px; }
 
   .full-table {
     display: block;

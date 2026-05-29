@@ -151,7 +151,8 @@ export default function FormPage() {
 
         {/* ── Section 02 ─────────────────────────────── */}
         <SectionHeader num={2} title="CONTACT PERSONS" />
-        <table>
+        <div className="table-responsive">
+              <table>
           <thead><tr><th>#</th><th>Name & Designation</th><th>Mobile No.</th><th>Email</th><th>Alternate Phone</th></tr></thead>
           <tbody>
             {data.contactPersons.map((c, i) => (
@@ -171,8 +172,8 @@ export default function FormPage() {
 
         {/* ── Section 03 ─────────────────────────────── */}
         <SectionHeader num={3} title="JOB PROFILE & COMPENSATION" />
-        <p style={{ fontSize:12, color:'#666', marginBottom:8 }}><em>Note: Please attach a detailed company profile and job description with this form.</em></p>
-        <table>
+        <div className="table-responsive">
+          <table >
           <thead>
             <tr>
               <th>Course</th><th>Job Designation</th><th>CTC (LPA)</th><th>Fixed/In-Hand</th>
@@ -191,8 +192,8 @@ export default function FormPage() {
             ))}
           </tbody>
         </table>
-
-        <table style={{ marginTop:8 }}>
+        </div>
+          <table style={{ marginTop:8 }}>
           <tbody>
             <tr>
               <td className="field-label">Service Bond / Contract?</td>
@@ -230,7 +231,8 @@ export default function FormPage() {
             </tr>
           </tbody>
         </table>
-
+        </div>
+  
         {/* ── Section 04 ─────────────────────────────── */}
         <SectionHeader num={4} title="SELECTION PROCESS" />
         <table>
@@ -317,7 +319,8 @@ export default function FormPage() {
         {/* ── Section 06 ─────────────────────────────── */}
         <SectionHeader num={6} title="BRANCHES / COURSES CONSIDERED" />
         <p style={{ fontWeight:600, fontSize:13, margin:'8px 0 4px' }}>B.Tech. (Undergraduate Programme)</p>
-        <table>
+        <div className="table-responsive">
+          <table>
           <thead>
             <tr>
               {['Chemical','Civil','CSE','Electrical','ECE','IT','Mechanical','Metallurgy & Materials'].map(b => <th key={b}>{b}</th>)}
@@ -336,6 +339,7 @@ export default function FormPage() {
             </tr>
           </tbody>
         </table>
+        </div>
 
         <p style={{ fontWeight:600, fontSize:13, margin:'10px 0 4px' }}>M.Tech. (Postgraduate Programme) — Specializations</p>
         <table>
