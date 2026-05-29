@@ -2,21 +2,27 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+const API = 'https://t-p-8vkw.onrender.com/api/jnf';
+
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
-      const res = await axios.post('https://t-p-8vkw.onrender.com/api/jnf/admin/login', { email, password });
+      const res = await axios.post(`${API}/admin/login`, { email, password });
       localStorage.setItem('jnf_token', res.data.token);
       navigate('/admin/dashboard');
     } catch {
       setError('Invalid email or password');
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -34,7 +40,9 @@ export default function AdminLogin() {
             <label>Password</label>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} required placeholder="••••••••" />
           </div>
-          <button className="login-btn" type="submit">Login</button>
+          <button className="login-btn" type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
           {error && <p className="error-msg">{error}</p>}
         </form>
       </div>
