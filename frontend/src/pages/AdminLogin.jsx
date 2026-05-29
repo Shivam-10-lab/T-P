@@ -12,7 +12,7 @@ export default function AdminLogin() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/jnf/admin/login', { email, password });
+      const res = await axios.post('https://t-p-8vkw.onrender.com/api/jnf/admin/login', { email, password });
       localStorage.setItem('jnf_token', res.data.token);
       navigate('/admin/dashboard');
     } catch {

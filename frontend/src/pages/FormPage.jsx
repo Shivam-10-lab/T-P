@@ -78,7 +78,7 @@ export default function FormPage() {
     e.preventDefault();
     if (!data.companyName.trim()) { alert('Company name is required.'); return; }
     try {
-      await axios.post('http://localhost:5000/api/jnf/submit', data);
+      await axios.post('https://t-p-8vkw.onrender.com/api/jnf/submit', data);
       setSubmitted(true);
       window.scrollTo(0, 0);
     } catch {
