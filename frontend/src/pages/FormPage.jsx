@@ -110,7 +110,6 @@ export default function FormPage() {
             <p>(An autonomous Institute of National Importance under the aegis of Ministry of Education, Govt. of India)</p>
             <p style={{ marginTop:4, fontWeight:600, color:'#003087' }}>प्रशिक्षण और प्लेसमेंट विभाग | DEPARTMENT OF TRAINING & PLACEMENT</p>
           </div>
-          <img src= {NITLogo} alt="NIT Srinagar" className="nit-logo" />
         </div>
       </div>
 
