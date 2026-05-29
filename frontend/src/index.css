@@ -486,3 +486,471 @@ td input:focus, td select:focus, td textarea:focus {
 
 .login-btn:hover { background: #00409e; }
 .error-msg { color: #dc3545; font-size: 13px; margin-top: 10px; text-align: center; }
+
+/* ── Detail modal tables ───────────────────────────────────── */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.detail-table td,
+.detail-table th {
+  padding: 7px 10px;
+  border: 1px solid #dde3ec;
+  vertical-align: top;
+}
+
+.detail-table th {
+  background: #e8eef7;
+  color: #003087;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.detail-label {
+  background: #f4f6fb;
+  font-weight: 600;
+  color: #003087;
+  width: 220px;
+  white-space: nowrap;
+}
+
+.detail-value {
+  color: #1a1a2e;
+}
+
+.detail-value a {
+  color: #003087;
+}
+
+.full-table {
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+}
+
+.na {
+  color: #aaa;
+  font-style: italic;
+}
+
+.no-data {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
+  margin: 6px 0 10px 4px;
+}
+
+/* ── Section headers inside modal ──────────────────────────── */
+.detail-section-head {
+  background: #003087;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.detail-section-num {
+  background: #ffd700;
+  color: #003087;
+  padding: 1px 7px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* ── CGPA chips ─────────────────────────────────────────────── */
+.chip {
+  display: inline-block;
+  background: #e8eef7;
+  color: #003087;
+  border: 1px solid #b8c8e8;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin-right: 6px;
+  margin-bottom: 2px;
+}
+
+/* ── Subsection labels ──────────────────────────────────────── */
+.subsection-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #003087;
+  margin: 8px 0 4px;
+  padding-left: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — all breakpoints
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Scrollable tables on small screens ────────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* ── Base mobile resets ─────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Form wrapper */
+  .form-wrapper {
+    margin: 0;
+    padding: 16px 14px;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Institute header */
+  .header-logo-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nit-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .institute-header h2 {
+    font-size: 13px;
+  }
+
+  .institute-header p {
+    font-size: 11px;
+  }
+
+  .form-title {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 10px 0 16px;
+  }
+
+  /* Section headers */
+  .section-header {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  /* All form tables — make horizontally scrollable */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  table thead,
+  table tbody,
+  table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* Override display:block for specific tables that need proper layout */
+  .detail-table,
+  .admin-table,
+  .full-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    font-size: 12px;
+    padding: 5px 6px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Field label-value rows: stack vertically on very small screens */
+  .field-label {
+    width: 100%;
+    display: block;
+  }
+
+  /* Inline conditional fields */
+  .inline-cond {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .inline-cond input[type="text"] {
+    width: 90px;
+  }
+
+  /* Radio groups */
+  .radio-group {
+    flex-wrap: wrap;
+  }
+
+  /* Submit button */
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Form footer */
+  .form-footer {
+    font-size: 11px;
+  }
+
+  .form-footer-bar {
+    font-size: 11px;
+    padding: 5px 8px;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .admin-access-bar {
+    font-size: 11px;
+    padding: 5px 14px;
+  }
+
+  /* ── Admin navbar ─────────────────────────────────────────── */
+  .admin-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .admin-nav h1 {
+    font-size: 13px;
+  }
+
+  /* ── Stats row ────────────────────────────────────────────── */
+  .stats-row {
+    gap: 10px;
+  }
+
+  .stat-card {
+    min-width: 0;
+    flex: 1 1 calc(50% - 10px);
+    padding: 12px 10px;
+  }
+
+  .stat-card .num {
+    font-size: 22px;
+  }
+
+  .stat-card .lbl {
+    font-size: 11px;
+  }
+
+  /* ── Admin content padding ────────────────────────────────── */
+  .admin-content {
+    padding: 14px 12px;
+  }
+
+  /* ── Table card header ────────────────────────────────────── */
+  .table-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 14px;
+  }
+
+  .table-card-header input[type="text"] {
+    width: 100% !important;
+  }
+
+  /* ── Admin table ──────────────────────────────────────────── */
+  .admin-table {
+    min-width: 560px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .btn-view,
+  .btn-delete {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  /* ── Modal ────────────────────────────────────────────────── */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-box {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    max-height: 92vh;
+  }
+
+  .modal-header {
+    padding: 12px 14px;
+  }
+
+  .modal-header h2 {
+    font-size: 14px;
+  }
+
+  .modal-body {
+    padding: 14px;
+    max-height: 78vh;
+  }
+
+  /* ── Detail section header ────────────────────────────────── */
+  .detail-section-head {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 16px 0 6px;
+  }
+
+  /* ── Detail tables ────────────────────────────────────────── */
+  .detail-table {
+    font-size: 12px;
+  }
+
+  .detail-table td,
+  .detail-table th {
+    padding: 6px 8px;
+  }
+
+  .detail-label {
+    width: 140px;
+    font-size: 12px;
+  }
+
+  /* Full-width scrollable tables in modal */
+  .full-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* CGPA chips wrap */
+  .chip {
+    font-size: 11px;
+    padding: 2px 6px;
+    margin-bottom: 3px;
+  }
+
+  /* Status control */
+  .status-control {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .status-control select {
+    width: 100%;
+  }
+
+  .status-control button {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* ── Login page ───────────────────────────────────────────── */
+  .login-page {
+    padding: 20px 16px;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .login-card {
+    width: 100%;
+    padding: 28px 20px;
+  }
+}
+
+/* ── Extra small screens (≤ 400px) ─────────────────────────── */
+@media (max-width: 400px) {
+
+  .form-wrapper {
+    padding: 12px 10px;
+  }
+
+  .institute-header h2 {
+    font-size: 12px;
+  }
+
+  .form-title {
+    font-size: 13px;
+  }
+
+  .section-header {
+    font-size: 10px;
+  }
+
+  th, td {
+    font-size: 11px;
+    padding: 4px 5px;
+  }
+
+  .stat-card {
+    flex: 1 1 100%;
+  }
+
+  .detail-label {
+    width: 120px;
+    font-size: 11px;
+  }
+
+  .detail-value {
+    font-size: 11px;
+  }
+
+  .modal-body {
+    padding: 10px;
+    max-height: 82vh;
+  }
+
+  .nit-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .login-card {
+    padding: 22px 14px;
+  }
+}
+
+/* ── Tablet (769px – 1024px) ────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .form-wrapper {
+    margin: 16px auto;
+    padding: 24px 28px;
+  }
+
+  .modal-box {
+    max-width: 720px;
+  }
+
+  .admin-content {
+    padding: 20px 24px;
+  }
+
+  .stat-card {
+    min-width: 120px;
+  }
+
+  .full-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
