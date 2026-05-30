@@ -61,6 +61,7 @@ function SectionHeader({ num, title }) {
 export default function FormPage() {
   const [data, setData] = useState(initialData);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const set = (field, value) => setData(prev => ({ ...prev, [field]: value }));
 
@@ -78,11 +79,14 @@ export default function FormPage() {
     e.preventDefault();
     if (!data.companyName.trim()) { alert('Company name is required.'); return; }
     try {
+      setLoading(true);
       await axios.post('https://t-p-8vkw.onrender.com/api/jnf/submit', data);
       setSubmitted(true);
       window.scrollTo(0, 0);
     } catch {
       alert('Submission failed. Please try again.');
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -475,7 +479,9 @@ export default function FormPage() {
           </tbody>
         </table>
 
-        <button type="submit" className="submit-btn">Submit</button>
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? 'Submitting...' : 'Submit'}
+        </button>
       </form>
 
       {/* Footer */}
