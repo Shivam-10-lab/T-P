@@ -33,25 +33,26 @@ const ScrollTable = ({ children }) => (
 
 export default function AdminPanel() {
   const navigate = useNavigate();
-  //const token = localStorage.getItem('jnf_token');
+  const token = localStorage.getItem('jnf_token');
   const [jnfs, setJnfs] = useState([]);
   const [selected, setSelected] = useState(null);
   const [newStatus, setNewStatus] = useState('');
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-  fetchAll().catch(() => navigate('/admin'));
+    if(!token) return navigate('/admin');
+    fetchAll();
 }, []);
 
-  //const headers = { Authorization: `Bearer ${token}` };
+  const headers = { Authorization: `Bearer ${token}` };
 
   const fetchAll = async () => {
-    const res = await axios.get(`${API}/admin/all`, { withCredentials: true } );
+    const res = await axios.get(`${API}/admin/all`, { headers });
     setJnfs(res.data);
   };
 
   const openDetail = async (id) => {
-    const res = await axios.get(`${API}/admin/${id}`, { withCredentials: true });
+    const res = await axios.get(`${API}/admin/${id}`, { headers });
     setSelected(res.data);
     setNewStatus(res.data.status);
     setTimeout(() => {
@@ -60,7 +61,7 @@ export default function AdminPanel() {
   };
 
   const updateStatus = async () => {
-    await axios.patch(`${API}/admin/${selected._id}/status`, { status: newStatus }, { withCredentials: true });
+    await axios.patch(`${API}/admin/${selected._id}/status`, { status: newStatus }, { headers });
     fetchAll();
     setSelected(prev => ({ ...prev, status: newStatus }));
     alert('Status updated!');
@@ -68,12 +69,12 @@ export default function AdminPanel() {
 
   const deleteJnf = async (id) => {
     if (!confirm('Delete this JNF?')) return;
-    await axios.delete(`${API}/admin/${id}`, { withCredentials: true });
+    await axios.delete(`${API}/admin/${id}`, { headers });
     setSelected(null);
     fetchAll();
   };
 const logout = async () => {
-  await axios.post(`${API}/admin/logout`, {}, { withCredentials: true });
+  localStorage.removeItem('jnf_token');
   navigate('/admin');
 };
 
