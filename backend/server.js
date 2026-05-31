@@ -2,12 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-
+const cookieParser = require('cookie-parser');
 const jnfRoutes = require('./routes/jnf');
 
 const app = express();
 
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://t-p-ruby.vercel.app'],
+  credentials: true   // required to allow cookies to be sent in cross-origin requests
+}));
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)

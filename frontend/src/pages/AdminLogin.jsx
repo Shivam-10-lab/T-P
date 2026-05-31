@@ -16,8 +16,7 @@ export default function AdminLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/admin/login`, { email, password });
-      localStorage.setItem('jnf_token', res.data.token);
+      const res = await axios.post(`${API}/admin/login`, { email, password }, { withCredentials: true }); // send/recieve cookies
       navigate('/admin/dashboard');
     } catch {
       setError('Invalid email or password');
