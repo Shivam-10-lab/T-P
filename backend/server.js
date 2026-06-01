@@ -19,7 +19,7 @@ app.use(cors({
 // Strict limit on login endpoint
 const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,  // 15 minutes
-  max: 10,                    // max 10 attempts per IP
+  max: 5,                    // max 10 attempts per IP
   message: { message: 'Too many login attempts. Try again in 15 minutes.' },
   standardHeaders: true,
   legacyHeaders: false,

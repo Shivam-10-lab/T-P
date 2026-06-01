@@ -22,8 +22,8 @@ export default function AdminLogin() {
      // localStorage.setItem('jnf_token', res.data.token);
       console.log("LOGIN SUCCESS", res.data);
       navigate('/admin/dashboard');
-    } catch {
-      setError('Invalid email or password');
+    } catch (err) {
+        setError(err.response?.data?.message ||'Invalid email or password')
     }finally{
       setLoading(false);
     }
