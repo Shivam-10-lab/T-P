@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API = 'https://t-p-8vkw.onrender.com/api/jnf';
+const API = process.env.API_URL;
 //const API = 'http://localhost:5000/api/jnf';
 
 export default function AdminLogin() {

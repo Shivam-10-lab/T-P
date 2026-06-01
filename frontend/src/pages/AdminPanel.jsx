@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API = 'https://t-p-8vkw.onrender.com/api/jnf';
+const API = process.env.API_URL;
 //const API = 'http://localhost:5000/api/jnf';
 
 const badgeClass = (s) => ({
@@ -97,7 +97,7 @@ const logout = async () => {
   return (
     <div className="admin-wrapper">
       <div className="admin-nav">
-        <h1>🎓 NIT Srinagar — T&P Admin Dashboard</h1>
+        <h1>NIT Srinagar — T&P Admin Dashboard</h1>
         <div style={{ display: 'flex', gap: 10 }}>
           <button onClick={() => navigate('/')}>← Back to Form</button>
           <button onClick={logout}>Logout</button>

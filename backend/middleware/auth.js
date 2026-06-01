@@ -14,8 +14,8 @@ module.exports = (req, res, next) => {
     req.admin = decoded;
     next();
     console.log("Token verified, admin:", decoded.email);
-  } catch {
-     console.log(err);
+  } catch(err){
+    console.log(err);
     res.status(401).json({ message: 'Session expired. Please login again.' });
   }
 };
