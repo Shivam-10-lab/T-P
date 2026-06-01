@@ -17,6 +17,7 @@ export default function AdminLogin() {
     setError('');
     setLoading(true);
     try {
+      console.log(email, password);
       const res = await axios.post(`${API}/admin/login`, { email, password }, { withCredentials: true }); // send/recieve cookies
      // localStorage.setItem('jnf_token', res.data.token);
       console.log("LOGIN SUCCESS", res.data);
