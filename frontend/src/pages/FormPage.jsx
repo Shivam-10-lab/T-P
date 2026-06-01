@@ -80,7 +80,7 @@ export default function FormPage() {
     if (!data.companyName.trim()) { alert('Company name is required.'); return; }
     try {
       setLoading(true);
-      await axios.post(`${process.env.API_URL}/submit`, data);
+      await axios.post(`${import.meta.env.VITE_API_URL}/submit`, data);
       setSubmitted(true);
       window.scrollTo(0, 0);
     } catch {

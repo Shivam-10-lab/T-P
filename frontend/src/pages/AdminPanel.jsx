@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API = process.env.API_URL;
+const API = import.meta.env.VITE_API_URL;
 //const API = 'http://localhost:5000/api/jnf';
 
 const badgeClass = (s) => ({
