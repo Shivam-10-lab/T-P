@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const API = 'https://t-p-8vkw.onrender.com/api/jnf';
+//const API = 'http://localhost:5000/api/jnf';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -16,8 +17,9 @@ export default function AdminLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/admin/login`, { email, password }); // send/recieve cookies
-      localStorage.setItem('jnf_token', res.data.token);
+      const res = await axios.post(`${API}/admin/login`, { email, password }, { withCredentials: true }); // send/recieve cookies
+     // localStorage.setItem('jnf_token', res.data.token);
+      console.log("LOGIN SUCCESS", res.data);
       navigate('/admin/dashboard');
     } catch {
       setError('Invalid email or password');

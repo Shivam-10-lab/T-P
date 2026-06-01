@@ -26,9 +26,16 @@ router.post('/admin/login', async (req, res) => {
   ) {
     return res.status(401).json({ message: 'Invalid credentials' });
   }
+
   const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '8h' });
 
-  res.json({ token });
+  res.cookie('admin_token', token, {
+      httpOnly: true,
+      secure: true,          // required for cross-site
+      sameSite: 'none',      // required for cross-site (Vercel → Render)
+      maxAge: 8 * 60 * 60 * 1000
+  });
+  res.json({ message: 'Login successful'});
 });
 
 // ── ADMIN: Get all JNFs ─────────────────────────────────────────
@@ -74,6 +81,11 @@ router.delete('/admin/:id', auth, async (req, res) => {
 });
 
 router.post('/admin/logout', (req, res) => {
+ res.clearCookie('admin_token', {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none'
+  });
   res.json({ message: 'Logged out' });
 });
 
