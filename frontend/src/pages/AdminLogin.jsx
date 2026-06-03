@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const API = import.meta.env.VITE_API_URL;
-//const API = 'http://localhost:5000/api/jnf';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -13,19 +12,26 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
+
     e.preventDefault();
     setError('');
     setLoading(true);
+
     try {
-      console.log(email, password);
+
       const res = await axios.post(`${API}/admin/login`, { email, password }, { withCredentials: true }); // send/recieve cookies
      // localStorage.setItem('jnf_token', res.data.token);
-      console.log("LOGIN SUCCESS", res.data);
+      console.log("LOGIN SUCCESS", res.data.message);
       navigate('/admin/dashboard');
+
     } catch (err) {
+
         setError(err.response?.data?.message ||'Invalid email or password')
+
     }finally{
+
       setLoading(false);
+      
     }
   };
 

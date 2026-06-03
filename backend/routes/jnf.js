@@ -21,8 +21,7 @@ router.post('/submit', async (req, res) => {
 router.post('/admin/login', async (req, res) => {
   const { email, password } = req.body;
   if (
-    email !== process.env.ADMIN_EMAIL ||
-    password !== process.env.ADMIN_PASSWORD
+    email !== process.env.ADMIN_EMAIL || !(await bcrypt.compare(password, process.env.ADMIN_PASSWORD_HASH))
   ) {
     return res.status(401).json({ message: 'Invalid credentials' });
   }

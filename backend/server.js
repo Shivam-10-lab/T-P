@@ -6,8 +6,11 @@ const cookiesParser = require('cookie-parser');
 const jnfRoutes = require('./routes/jnf');
 const rateLimit  = require('express-rate-limit');
 const app = express();
-app.set('trust proxy', 1);
+const helmet = require('helmet');
+const bcrypt = require('bcryptjs');
 
+app.set('trust proxy', 1);
+app.use(helmet());
 app.use(cors({
   origin: [
     'http://localhost:5173',

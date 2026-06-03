@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const API = import.meta.env.VITE_API_URL;
-//const API = 'http://localhost:5000/api/jnf';
 
 const badgeClass = (s) => ({
   Pending: 'badge badge-pending',

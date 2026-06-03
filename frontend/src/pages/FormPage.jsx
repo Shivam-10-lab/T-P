@@ -487,7 +487,7 @@ export default function FormPage() {
       {/* Footer */}
       <div className="form-footer">
         <p><strong>Postal Address:</strong> Office, Dept. of Training & Placement, National Institute of Technology, Srinagar – 190006, J&K (India)</p>
-        <p>Contact: +91 941922xxxx, +91 941922xxxx</p>
+        <p>Contact: +91 9419226574, +91 9419226538</p>
       </div>
       <div className="admin-access-bar">
         T&P Staff: <Link to="/admin">Admin Portal →</Link>
