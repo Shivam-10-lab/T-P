@@ -98,6 +98,11 @@ const logout = async () => {
       <div className="admin-nav">
         <h1>NIT Srinagar — T&P Admin Dashboard</h1>
         <div style={{ display: 'flex', gap: 10 }}>
+
+          <button onClick={() => window.open(`${API}/admin/export/excel`, '_blank')}>
+              ⬇ Export Excel
+          </button>
+
           <button onClick={() => navigate('/')}>← Back to Form</button>
           <button onClick={logout}>Logout</button>
         </div>
